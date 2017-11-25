@@ -12,6 +12,7 @@ export class HttpProdutoComponent {
   title: string;
   produtos: Produto[];
   produto: Produto;
+  produtoClone: Produto;
 
   hidden: boolean;
   
@@ -67,4 +68,15 @@ export class HttpProdutoComponent {
       () => this.getProdutos()
     );
   }
+  
+  clonarProduto(produto) {
+      this.produtoClone = Object.assign({}, produto);
+      this.produtoClone.id = null;
+      this.produtoClone.descricao += ' Clone';
+      this.httpProdutoS.addProduto(this.produtoClone).subscribe(
+        data => data,
+        error => alert(error),
+        () => this.getProdutos()
+      );
+    }
 }

@@ -12,7 +12,7 @@ export class HttpClienteService {
 
   getClientes(): Observable<Cliente[]> {
     return this._http.
-      get('http://java-as-thiago.jelasticlw.com.br/as/cliente').
+      get('http://java-as-thiago.jelasticlw.com.br/rest/cliente').
       map(this.extractData);
   }
 
@@ -32,20 +32,20 @@ export class HttpClienteService {
     const json = JSON.stringify(cliente);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/cadastrar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/cliente/cadastrar', json, options).map(res => res.json());
   }
   
   editarCliente(cliente: Cliente): Observable<string> {
     const json = JSON.stringify(cliente);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/alterar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/cliente/alterar', json, options).map(res => res.json());
   }
   
   deletarCliente(id: string): Observable<string> {
     const json = id;
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/deletar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/cliente/deletar', json, options).map(res => res.json());
   }
 }

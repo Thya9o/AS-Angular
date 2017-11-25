@@ -12,7 +12,7 @@ export class HttpProdutoService {
 
   getProdutos(): Observable<Produto[]> {
     return this._http.
-      get('http://java-as-thiago.jelasticlw.com.br/as/rest/produto').
+      get('http://java-as-thiago.jelasticlw.com.br/rest/produto').
       map(this.extractData);
   }
 
@@ -32,20 +32,20 @@ export class HttpProdutoService {
     const json = JSON.stringify(produto);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/cadastrar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/produto/cadastrar', json, options).map(res => res.json());
   }
   
   editarProduto(produto: Produto): Observable<string> {
     const json = JSON.stringify(produto);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/alterar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/produto/alterar', json, options).map(res => res.json());
   }
   
   deletarProduto(id: string): Observable<string> {
     const json = id;
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/deletar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/rest/produto/deletar', json, options).map(res => res.json());
   }
 }
