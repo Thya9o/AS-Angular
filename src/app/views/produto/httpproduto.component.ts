@@ -72,7 +72,6 @@ export class HttpProdutoComponent {
   clonarProduto(produto) {
       this.produtoClone = Object.assign({}, produto);
       this.produtoClone.id = null;
-      this.produtoClone.descricao += ' Clone';
       this.httpProdutoS.addProduto(this.produtoClone).subscribe(
         data => data,
         error => alert(error),
