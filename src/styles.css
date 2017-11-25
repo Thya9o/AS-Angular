@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* Folha de estilo global do projeto */
+body {
+	background-color: rgba(27, 65, 104, 1);
+	background-image: url('/css/img/tema.png');
+	padding: 50px;
+}
+
+.navbar-brand img {
+	width: 30px;
+    height: 30px;
+}

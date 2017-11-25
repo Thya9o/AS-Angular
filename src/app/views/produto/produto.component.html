@@ -25,70 +25,70 @@
 <br/>
 <div class="container">
 	<div class="cliente-page">
-		<h1>Clientes</h1>
+		<h1>Produtos</h1>
 		<div class="card card-primary">
 			<div class="card-block">
 				<hr/>
 				<section id="cadastrar" [hidden]="hidden">
-					<h2>Cadastro de Clientes</h2>
+					<h2>Cadastro de Produtos</h2>
 					<form>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="nome">Nome</label>
-									<input type="text" class="form-control" name="nome" [(ngModel)]="cliente.nome" required>
+									<label for="nome">Descrição</label>
+									<input type="text" class="form-control" name="descricao" [(ngModel)]="produto.descricao" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="cpf">CPF</label>
-									<input type="text" class="form-control" name="cpf" [(ngModel)]="cliente.cpf" required>
+									<label for="cpf">Valor</label>
+									<input type="text" class="form-control" name="valor" [(ngModel)]="produto.valor" required>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-success" (click)="addCliente()">Cadastrar</button>
+						<button class="btn btn-success" (click)="addProduto()">Cadastrar</button>
 					</form>
 				</section>
 				<section id="editar" [hidden]="!hidden">
-					<h2>Alterar Cliente</h2>
+					<h2>Alterar Produto</h2>
 					<form>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="nomeEditar">Nome</label>
-									<input type="text" class="form-control" name="nomeEditar" [(ngModel)]="cliente.nome" required>
+									<label for="nomeEditar">Descrição</label>
+									<input type="text" class="form-control" name="descricaoEditar" [(ngModel)]="produto.descricao" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="cpfEditar">CPF</label>
-									<input type="text" class="form-control" name="cpfEditar" [(ngModel)]="cliente.cpf" required>
+									<label for="cpfEditar">Valor</label>
+									<input type="text" class="form-control" name="valorEditar" [(ngModel)]="produto.valor" required>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-default" (click)="voltarCliente()">Voltar</button>
-						<button class="btn btn-primary" (click)="editarClienteSubmit()">Salvar</button>
+						<button class="btn btn-default" (click)="voltarProduto()">Voltar</button>
+						<button class="btn btn-primary" (click)="editarProdutoSubmit()">Salvar</button>
 					</form>
 				</section>
 				<hr/>
-				<h2>Lista de Clientes</h2>
+				<h2>Lista de Produtos</h2>
 				<table class="table table-borderd table-stripped">
 					<thead>
 						<tr>
 							<th>Cod.</th>
-							<th>Nome</th>
-							<th>CPF</th>
+							<th>Descrição</th>
+							<th>Valor</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let cliente of clientes">
-							<td>{{cliente.id}}</td>
-							<td>{{cliente.nome}} </td>
-							<td>{{cliente.cpf}} </td>
+						<tr *ngFor="let produto of produtos">
+							<td>{{produto.id}}</td>
+							<td>{{produto.descricao}} </td>
+							<td>{{produto.valor}} </td>
 							<td>
-								<button class="btn btn-primary" (click)="editarCliente(cliente)">Editar</button>
-								<button class="btn btn-danger" (click)="deletarCliente(cliente)">Deletar</button>
+								<button class="btn btn-primary" (click)="editarProduto(produto)">Editar</button>
+								<button class="btn btn-danger" (click)="deletarProduto(produto)">Deletar</button>
 							</td>
 						</tr>
 					</tbody>
@@ -96,7 +96,7 @@
 			</div>
 		</div>
 	</div>
-</div>	
+</div>
 	
 	
 	

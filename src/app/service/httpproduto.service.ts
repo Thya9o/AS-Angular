@@ -4,15 +4,15 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import { Cliente } from '../entidade/cliente.component';
+import { Produto } from '../entidade/produto.component';
 
 @Injectable()
-export class HttpClienteService {
+export class HttpProdutoService {
   constructor(private _http: Http) { }
 
-  getClientes(): Observable<Cliente[]> {
+  getProdutos(): Observable<Produto[]> {
     return this._http.
-      get('http://java-as-thiago.jelasticlw.com.br/as/cliente').
+      get('http://java-as-thiago.jelasticlw.com.br/as/rest/produto').
       map(this.extractData);
   }
 
@@ -20,32 +20,32 @@ export class HttpClienteService {
     // verifica o tamanho da lista do rest e
     // realiza o retorno apropriado
     if(res.json() != null) {    
-      if(res.json()['cliente'].length > 1) {
-        return res.json()['cliente'];
+      if(res.json()['produto'].length > 1) {
+        return res.json()['produto'];
       }else {
-        return [res.json()['cliente']];
+        return [res.json()['produto']];
       }
     }
   }
 
-  addCliente(cliente: Cliente): Observable<string> {
-    const json = JSON.stringify(cliente);
+  addProduto(produto: Produto): Observable<string> {
+    const json = JSON.stringify(produto);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/cadastrar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/cadastrar', json, options).map(res => res.json());
   }
   
-  editarCliente(cliente: Cliente): Observable<string> {
-    const json = JSON.stringify(cliente);
+  editarProduto(produto: Produto): Observable<string> {
+    const json = JSON.stringify(produto);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/alterar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/alterar', json, options).map(res => res.json());
   }
   
-  deletarCliente(id: string): Observable<string> {
+  deletarProduto(id: string): Observable<string> {
     const json = id;
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/cliente/deletar', json, options).map(res => res.json());
+    return this._http.post('http://java-as-thiago.jelasticlw.com.br/as/rest/produto/deletar', json, options).map(res => res.json());
   }
 }

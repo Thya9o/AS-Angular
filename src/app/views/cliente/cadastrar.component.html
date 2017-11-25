@@ -1,0 +1,29 @@
+<div class="cliente-page">
+	<h1>Cadastro de Cliente</h1>
+	<div class="card card-primary">
+		<div class="card-block">
+			<form>
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text"
+						class="form-control" name="nome" [(ngModel)]="cliente.nome" 
+						required>
+				</div>
+				<div class="form-group">
+					<label for="cpf">CPF</label> <input type="text"
+						class="form-control" name="cpf" [(ngModel)]="cliente.cpf"
+						required>
+				</div>
+				<button class="btn btn-success" (click)="addCliente()">Cadastrar</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
